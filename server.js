@@ -18,7 +18,7 @@ async function main() {
 }
 const io = require("socket.io")(3000, {
   cors: {
-    origin: "https://google-docs-gray.vercel.app",
+    origin: "https://google-docs-git-master-serve4peoples-projects.vercel.app/",
     methods: ["GET", "POST"],
   },
 });
