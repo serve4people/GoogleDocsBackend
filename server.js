@@ -5,18 +5,21 @@ const Document = require("./Document");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(
-    "mongodb+srv://" +
-      process.env.usernameMongoDB +
-      ":" +
-      process.env.passwordMongoDB +
-      "@cluster0.1kpomt1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-  );
+  await mongoose
+    .connect(
+      "mongodb+srv://" +
+        process.env.usernameMongoDB +
+        ":" +
+        process.env.passwordMongoDB +
+        "@cluster0.1kpomt1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    )
+    .then(() => console.log("MongoDB connected..."))
+    .catch((err) => console.log(err));
 }
 
 const io = require("socket.io")(3000, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://google-docs-gray.vercel.app",
     methods: ["GET", "POST"],
   },
 });
