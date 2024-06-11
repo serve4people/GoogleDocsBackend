@@ -1,13 +1,15 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
+
 const Document = require("./Document");
 main().catch((err) => console.log(err));
 
 async function main() {
   await mongoose.connect(
     "mongodb+srv://" +
-      process.env.username +
+      process.env.usernameMongoDB +
       ":" +
-      process.env.password +
+      process.env.passwordMongoDB +
       "@cluster0.1kpomt1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   );
 }
@@ -19,6 +21,7 @@ const io = require("socket.io")(3000, {
   },
 });
 const defaultValue = "";
+
 io.on("connection", (socket) => {
   socket.on("get-document", async (documentId) => {
     const document = await findOrCreateDocument(documentId);
