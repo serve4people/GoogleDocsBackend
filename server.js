@@ -3,7 +3,13 @@ const Document = require("./Document");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/google-docs-clone");
+  await mongoose.connect(
+    "mongodb+srv://" +
+      process.env.username +
+      ":" +
+      process.env.password +
+      "@cluster0.1kpomt1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  );
 }
 
 const io = require("socket.io")(3001, {
