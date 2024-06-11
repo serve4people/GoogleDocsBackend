@@ -16,8 +16,8 @@ async function main() {
     .then(() => console.log("MongoDB connected..."))
     .catch((err) => console.log(err));
 }
-
-const io = require("socket.io")(3000, {
+const httpServer = "https://googledocsbackend-production.up.railway.app/";
+const io = require("socket.io")(httpServer, {
   cors: {
     origin: "https://google-docs-gray.vercel.app",
     methods: ["GET", "POST"],
