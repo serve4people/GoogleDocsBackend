@@ -16,7 +16,9 @@ async function main() {
     .then(() => console.log("MongoDB connected..."))
     .catch((err) => console.log(err));
 }
-const io = require("socket.io")(3000, {
+
+const PORT = process.env.PORT || 3001;
+const io = require("socket.io")(PORT, {
   cors: {
     origin: "https://google-docs-git-master-serve4peoples-projects.vercel.app/",
     methods: ["GET", "POST"],
