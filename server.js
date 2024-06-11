@@ -8,7 +8,7 @@ async function main() {
 
 const io = require("socket.io")(3001, {
   cors: {
-    origin: "https://google-docs-clone-five-sigma.vercel.app/",
+    origin: "https://google-docs-gray.vercel.app/",
     methods: ["GET", "POST"],
   },
 });
